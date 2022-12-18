@@ -13,8 +13,10 @@ const schema = yup
     password: yup
       .string()
       .min(6, "No minimo 6 caracteres")
-      .required("Campo obrigatório"),
+      .required("Campo obrigatório")
+
   })
+  
   .required();
 
 const Login = () => {
@@ -27,6 +29,8 @@ const Login = () => {
     defaultValues,
     reValidateMode: "onChange",
   });
+
+  console.log(isValid);
 
   return (
     <Container>
@@ -49,7 +53,7 @@ const Login = () => {
             errorMessage={errors?.password?.message}
           />
           <Spacing />
-          <Button title="Entrar" />
+          <Button title="Entrar"/>
         </Column>
       </LoginContainer>
     </Container>
